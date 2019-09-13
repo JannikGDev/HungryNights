@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Ui/Control.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Ui/over.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Ui/fill.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Ui/clock.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Ui/pointer.png" type="Texture" id=5]
+
 
 [node name="GameUi" type="Control"]
 anchor_right = 1.0
