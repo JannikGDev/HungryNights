@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Ui/over.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Ui/fill.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Ui/clock.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Ui/pointer.png" type="Texture" id=5]
+
+[node name="GameUi" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Attention" type="TextureProgress" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+value = 50.0
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+fill_mode = 3
+
+[node name="Clock" type="Sprite" parent="."]
+position = Vector2( 923.995, 102.608 )
+texture = ExtResource( 4 )
+
+[node name="Pointer" type="Sprite" parent="Clock"]
+texture = ExtResource( 5 )
+offset = Vector2( 0, -32 )
