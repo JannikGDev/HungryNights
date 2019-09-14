@@ -5,11 +5,15 @@ var current_point
 var move_vec = Vector2()
 export var speed = 100
 
+onready var anim: AnimationPlayer = get_node("AnimationPlayer")
+
+var attacking: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	current_way = $Navigation2D.get_simple_path(global_position, $Navigation2D/NavigationPolygonInstance/EinePosition.global_position)
-	print(current_way)
 	current_point = 0
+	anim.playback_speed = speed / 300.0
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,9 +21,23 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	move_to_point(current_point)
-	print(move_vec)
-	move_and_collide(move_vec * delta)
+	
+	if !attacking:
+		move_to_point(current_point)
+		move_and_collide(move_vec * delta * abs(scale.x))
+		
+		if move_vec.length() == 0:
+			anim.play("idle")
+		else:
+			anim.play("walk")
+		
+		if attacking:
+			if !anim.is_playing():
+				attacking = false
+
+func start_attack():
+	attacking = true
+	anim.play("attack")
 
 func move_to_point(point):
 	move_vec = current_way[point] - global_position

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Guard/Guard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_body.png" type="Texture" id=2]
@@ -7,9 +7,101 @@
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_arm_1.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_Weapon.png" type="Texture" id=6]
 
+[sub_resource type="Animation" id=5]
+resource_name = "attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Center/arm_right/Weapon:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -163.094, -73.532, -163.094 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Center/arm_right:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 72.4302, 44.5772, 72.4302 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Center/leg_right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 65.1659 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Center/leg_left:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 94.8343 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/Center/arm_right:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 83.3235 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/Center/arm_left:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -256.676 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/Center/arm_right/Weapon:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -163.094 ]
+}
+
 [sub_resource type="Animation" id=1]
-resource_name = "test"
-length = 0.5
+resource_name = "walk"
+length = 0.4
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Skeleton2D/Center/leg_right:rotation_degrees")
@@ -132,7 +224,6 @@ uv = PoolVector2Array( 1181.82, 81.6364, 1145.45, 402.848, 1018.18, 505.879, 103
 bones = [ NodePath("Center"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_right/Weapon"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("Center/arm_left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
-editor/display_folded = true
 
 [node name="Center" type="Bone2D" parent="Skeleton2D"]
 position = Vector2( 1.2193, -2.14639 )
@@ -140,31 +231,38 @@ rest = Transform2D( 1, 0, 0, 1, 1.2193, -2.14639 )
 
 [node name="leg_right" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( 16.0981, 2.11554 )
-rotation = 1.13736
+rotation = 1.49648
+scale = Vector2( 1, 1 )
 rest = Transform2D( 0.0742478, 0.99724, -0.99724, 0.0742478, 16.0981, 2.11554 )
 
 [node name="leg_left" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( -11.5266, 3.65126 )
-rotation = 1.65517
+rotation = 1.46519
+scale = Vector2( 1, 1 )
 rest = Transform2D( 0.105412, 0.994429, -0.994429, 0.105412, -11.5266, 3.65126 )
 
 [node name="arm_right" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( 23.5461, -52.2046 )
-rotation = 1.45427
+rotation = 1.26414
+scale = Vector2( 1, 1 )
 rest = Transform2D( 0.301868, 0.95335, -0.95335, 0.301868, 23.5461, -52.2046 )
 
 [node name="Weapon" type="Bone2D" parent="Skeleton2D/Center/arm_right"]
 position = Vector2( 29.9567, -12.1282 )
 rotation = -2.84653
+scale = Vector2( 1, 1 )
 rest = Transform2D( -0.956784, -0.290798, 0.290798, -0.956784, 29.9567, -12.1282 )
 
 [node name="arm_left" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( -22.1507, -49.3905 )
-rotation = -4.47985
+rotation = 1.8984
+scale = Vector2( 1, 1 )
 rest = Transform2D( -0.321774, 0.946817, -0.946817, -0.321774, -22.1507, -49.3905 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/test = SubResource( 1 )
+anims/attack = SubResource( 5 )
+anims/idle = SubResource( 4 )
+anims/walk = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1, -45 )
