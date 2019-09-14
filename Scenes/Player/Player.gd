@@ -66,3 +66,4 @@ func _process(delta):
 
 func attacked():
 	emit_signal("player_attacked")
+	queue_free()
