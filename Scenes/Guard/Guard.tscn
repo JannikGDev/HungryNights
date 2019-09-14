@@ -277,6 +277,7 @@ shape = SubResource( 6 )
 
 [node name="PlayerChecker" type="RayCast2D" parent="."]
 enabled = true
+cast_to = Vector2( 800, 0 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5

@@ -28,16 +28,22 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	$ViewCone.rotation += (move_vec.angle() - $ViewCone.rotation) * 0.8 * delta
+	$ViewCone.rotation += (move_vec.angle() - $ViewCone.rotation) * 0.9 * delta
 	if !attacking:
 		move_to_point(current_point, delta)
 		collider = move_and_collide(move_vec * delta * abs(scale.x))
 		
 		if player_in_view:
 			player_pos = player.global_position
-			$PlayerChecker.cast_to = player.global_position
+			current_point = player_pos
+			$PlayerChecker.rotation = get_angle_to(player_pos)
+			print("player is in view")
+			print(player.global_position)
 			if $PlayerChecker.get_collider() != player:
 				player_in_view = false
+		else:
+			print("no player in view")
+			current_point = current_way[current_point_index]
 		
 		if move_vec.length() == 0:
 			anim.play("idle")
@@ -65,9 +71,7 @@ func start_attack(body):
 	anim.play("attack")
 
 func move_to_point(point, delta):
-	if player_in_view:
-			current_point = player_pos
-	elif global_position.distance_to(point) >= speed*delta:
+	if global_position.distance_to(point) >= speed*delta:
 		move_vec = point - global_position
 		move_vec = move_vec.normalized()
 		move_vec*=speed
@@ -96,6 +100,7 @@ func _on_ViewCone_body_exited(body):
 	if body.get_name() == "Player":
 		player_in_view = false
 		spotting = false
+		print("exited")
 
 
 func _on_Timer_timeout():
