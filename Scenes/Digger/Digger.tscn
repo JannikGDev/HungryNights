@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Digger/CHAR_Digger_arm_right.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Digger/CHAR_Digger_Schaufel.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
@@ -131,8 +131,7 @@ tracks/9/keys = {
 "values": [ 71.8773 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "walk"
+[sub_resource type="Animation" id=2]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -196,10 +195,11 @@ tracks/4/keys = {
 "values": [ 32.4189, 45.8115, 53.9973, 53.8876, 32.8753 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 35.8457, 37.5011 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
+z_index = 1
 script = ExtResource( 1 )
 
 [node name="polygons" type="Node2D" parent="."]
@@ -289,24 +289,18 @@ rest = Transform2D( 0.311054, 0.950392, -0.950392, 0.311054, 15.0203, -37.6411 )
 [node name="arm_left" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( -22.5154, -36.6681 )
 rotation = 2.07672
-scale = Vector2( 1, 1 )
 z_index = 1
 rest = Transform2D( -0.484614, 0.874728, -0.874728, -0.484614, -22.5154, -36.6681 )
 
 [node name="weapon" type="Bone2D" parent="Skeleton2D/Center/arm_left"]
 position = Vector2( 47.9073, -3.75443 )
 rotation = 0.507986
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.873726, 0.486419, -0.486419, 0.873726, 47.9073, -3.75443 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 3 )
-anims/walk = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.5, 0.5 )
+anims/idle = SubResource( 1 )
+anims/walk = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.58887, 28.9968 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
