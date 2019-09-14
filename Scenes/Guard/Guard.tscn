@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Guard/Guard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_body.png" type="Texture" id=2]
@@ -159,8 +159,12 @@ vertices = PoolVector2Array( 223.268, 771.632, -204.299, 724.867, -114.109, 504.
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5 ), PoolIntArray( 6, 5, 4, 7, 8 ), PoolIntArray( 9, 8, 7, 10 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 12, 11, 14, 15 ) ]
 outlines = [ PoolVector2Array( -233.796, 282.202, -270.628, 139.785, -65.5955, 88.2199, 202.051, 170.478, 553.964, 317.342, 577.346, 547.827, 498.848, 723.197, 223.268, 771.632, -204.299, 724.867, -114.109, 504.403, 91.3231, 599.603, 335.17, 582.901, 428.7, 460.978, 328.489, 362.437, 123.057, 298.97, -75.6952, 312.332 ) ]
 
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 0, 0, 800, 200, 800, -200 )
+
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
+speed = 500
 
 [node name="polygons" type="Node2D" parent="."]
 editor/display_folded = true
@@ -223,6 +227,7 @@ uv = PoolVector2Array( 1181.82, 81.6364, 1145.45, 402.848, 1018.18, 505.879, 103
 bones = [ NodePath("Center"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_right/Weapon"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("Center/arm_left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+editor/display_folded = true
 
 [node name="Center" type="Bone2D" parent="Skeleton2D"]
 position = Vector2( 1.2193, -2.14639 )
@@ -274,3 +279,14 @@ navpoly = SubResource( 5 )
 
 [node name="EinePosition" type="Position2D" parent="Navigation2D/NavigationPolygonInstance"]
 position = Vector2( -66.3348, 642.682 )
+
+[node name="ViewCone" type="Area2D" parent="."]
+position = Vector2( 3.31714, -35.1614 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ViewCone"]
+shape = SubResource( 6 )
+[connection signal="body_entered" from="ViewCone" to="." method="_on_ViewCone_body_entered"]
+[connection signal="body_exited" from="ViewCone" to="." method="_on_ViewCone_body_exited"]
