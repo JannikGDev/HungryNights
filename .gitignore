@@ -6,3 +6,4 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
+Scenes/Smoke/smoke.png.import
