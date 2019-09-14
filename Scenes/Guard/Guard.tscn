@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scenes/Person/Person.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Guard/Guard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_body.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_leg_2.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_arm_2.png" type="Texture" id=4]

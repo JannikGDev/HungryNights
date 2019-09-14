@@ -63,4 +63,5 @@ func _process(delta):
 	attackCheck(delta)
 	
 	
+	move_and_collide(baseSpeed*move*delta)
 
