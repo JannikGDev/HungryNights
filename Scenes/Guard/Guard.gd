@@ -5,6 +5,8 @@ var current_point_index
 var current_point: Vector2
 var move_vec = Vector2()
 var player_in_view: bool
+var player_pos = Vector2()
+var collider
 export var speed = 100
 export var traverse_back: bool = true
 
@@ -27,7 +29,7 @@ func _physics_process(delta):
 	#$ViewCone.rotation = move_vec.angle()
 	if !attacking:
 		move_to_point(current_point, delta)
-		move_and_collide(move_vec * delta * abs(scale.x))
+		collider = move_and_collide(move_vec * delta * abs(scale.x))
 		
 		if move_vec.length() == 0:
 			anim.play("idle")
@@ -39,7 +41,11 @@ func _physics_process(delta):
 			if move_vec.x < 0:
 				polygons.scale.x = -abs(polygons.scale.x)
 				skeleton.scale.x = -abs(skeleton.scale.x)
+				
 		
+		if is_instance_valid(collider) && collider.get_collider().name == "Player":
+			start_attack()
+			
 	if attacking:
 		if !anim.is_playing():
 			attacking = false
@@ -49,15 +55,15 @@ func start_attack():
 	anim.play("attack")
 
 func move_to_point(point, delta):
-	if global_position.distance_to(point) >= speed*delta:
+	if player_in_view:
+			current_point = player_pos
+	elif global_position.distance_to(point) >= speed*delta:
 		move_vec = point - global_position
 		move_vec = move_vec.normalized()
 		move_vec*=speed
 	else:
 		global_position = point
-		if player_in_view:
-			start_attack()
-		else:
+		if !player_in_view:
 			next_waypoint()
 
 func next_waypoint():
@@ -70,7 +76,9 @@ func next_waypoint():
 			current_point_index = 0
 
 func _on_ViewCone_body_entered(body):
-	player_in_view = body.get_name() == "Player"
+	if body.get_name() == "Player":
+		player_pos = body.global_position
+		player_in_view = true
 
 func _on_ViewCone_body_exited(body):
 	if body.get_name() == "Player":
