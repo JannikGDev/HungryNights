@@ -19,17 +19,27 @@ const randomRunLength = 600
 
 var target: Vector2 = Vector2()
 
+func clamp_vector(vec: Vector2, min_vec: Vector2, max_vec: Vector2):
+	
+	var result: Vector2 = Vector2()
+	result.x = max(min(vec.x,max_vec.x), min_vec.x)
+	result.y = max(min(vec.y,max_vec.y), min_vec.y)
+	
+	return result
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.play("idle")
 	
 	target = Vector2(750, 0) + Vector2(randomRunLength*scale.x,0).rotated(randf()*PI*2)
+	target = clamp_vector(target, Vector2(100, -1200), Vector2(1400, 500))
 	
 func movement(delta):
 	var move = Vector2()
 	
 	if (target - self.position).length() < speed*delta*abs(scale.x)*5:
 		target = Vector2(750, 0) + Vector2(randomRunLength*scale.x,0).rotated(randf()*PI*2)
+		target = clamp_vector(target, Vector2(100, -1200), Vector2(1400, 500))
 		panic = false
 	
 	move = (target - self.position).normalized()
@@ -74,6 +84,7 @@ func check_vision(delta):
 		if entity.is_in_group("player"):
 			panic = true
 			target = self.position -(entity.position - self.position).normalized()*randomRunLength
+			target = clamp_vector(target, Vector2(100, -1200), Vector2(1400, 500))
 
 func _process(delta):
 	
