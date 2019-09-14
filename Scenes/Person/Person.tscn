@@ -5,104 +5,56 @@
 [ext_resource path="res://Assets/body.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
-resource_name = "test"
+resource_name = "walk"
 length = 0.5
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Skeleton2D/Center/leg_right:position")
+tracks/0/path = NodePath("Skeleton2D/Center/leg_right:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ Vector2( 21.5092, 10.3961 ) ]
+"values": [  ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Skeleton2D/Center/leg_right:rotation_degrees")
+tracks/1/path = NodePath("Skeleton2D/Center/leg_left:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ 90.0, 60.0, 120.0 ]
+"values": [  ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Skeleton2D/Center/leg_left:position")
+tracks/2/path = NodePath("Skeleton2D/Center/arm_right:rotation_degrees")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.492464 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ Vector2( -19.7168, 11.8301 ) ]
+"values": [  ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Skeleton2D/Center/leg_left:rotation_degrees")
+tracks/3/path = NodePath("Skeleton2D/Center/arm_left:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ 91.2569, 60.0, 120.0 ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("Skeleton2D/Center/arm_right:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0.0791442 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 21.5092, -41.226 ) ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("Skeleton2D/Center/arm_right:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -12.9159, 20.0, -20.0 ]
-}
-tracks/6/type = "value"
-tracks/6/path = NodePath("Skeleton2D/Center/arm_left:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 0.0791442 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -24.7356, -40.1505 ) ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("Skeleton2D/Center/arm_left:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -147.75, -130.0, -160.0 ]
+"values": [  ]
 }
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -138,7 +90,6 @@ uv = PoolVector2Array( 3.5, 9.75, 30.25, 2, 57.75, 3.5, 61.5, 9.75, 53.5, 27, 55
 [node name="arm_left" type="Polygon2D" parent="polygons"]
 position = Vector2( -15.0564, -45.1694 )
 rotation = 2.02532
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 skeleton = NodePath("../../Skeleton2D")
 polygon = PoolVector2Array( 6.75, -0.5, 2.25, 5, 1, 24.75, 6.5, 29.25, 12.5, 21.25, 13, 6 )
@@ -181,7 +132,7 @@ rotation = -2.74914
 rest = Transform2D( -0.845729, -0.533613, 0.533613, -0.845729, -24.7356, -40.1505 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/test = SubResource( 1 )
+anims/walk = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
