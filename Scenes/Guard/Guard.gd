@@ -40,9 +40,6 @@ func _physics_process(delta):
 				player_in_view = false
 		else:
 			current_point = current_way[current_point_index]
-			print(current_point)
-			print(current_way)
-			print(current_point_index)
 		
 		if move_vec.length() == 0:
 			anim.play("idle")
