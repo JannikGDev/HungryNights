@@ -6,6 +6,7 @@ var current_point: Vector2
 var move_vec = Vector2()
 var player_in_view: bool
 var player_pos = Vector2()
+var player
 var collider
 export var speed = 100
 export var traverse_back: bool = true
@@ -13,11 +14,13 @@ export var traverse_back: bool = true
 onready var anim: AnimationPlayer = get_node("AnimationPlayer")
 onready var polygons: Node2D = get_node("polygons")
 onready var skeleton: Skeleton2D = get_node("Skeleton2D")
+onready var navigation: Navigation2D = get_node("../PatrolNavigation")
 
 var attacking: bool = false
+var spotting: bool = false
 
 func _ready():
-	current_way = $Navigation2D.get_simple_path(global_position, $Navigation2D/NavigationPolygonInstance/EinePosition.global_position)
+	current_way = navigation.get_simple_path(global_position, get_node("../PatrolNavigation/PatrolePoint").global_position)
 	current_point_index = 0
 	current_point = current_way[current_point_index]
 	anim.playback_speed = speed / 300.0
@@ -26,10 +29,15 @@ func _ready():
 
 func _physics_process(delta):
 	$ViewCone.rotation += (move_vec.angle() - $ViewCone.rotation) * 0.8 * delta
-	#$ViewCone.rotation = move_vec.angle()
 	if !attacking:
 		move_to_point(current_point, delta)
 		collider = move_and_collide(move_vec * delta * abs(scale.x))
+		
+		if player_in_view:
+			player_pos = player.global_position
+			$PlayerChecker.cast_to = player.global_position
+			if $PlayerChecker.get_collider() != player:
+				player_in_view = false
 		
 		if move_vec.length() == 0:
 			anim.play("idle")
@@ -49,6 +57,7 @@ func _physics_process(delta):
 	if attacking:
 		if !anim.is_playing():
 			attacking = false
+		
 
 func start_attack(body):
 	attacking = true
@@ -78,9 +87,17 @@ func next_waypoint():
 
 func _on_ViewCone_body_entered(body):
 	if body.get_name() == "Player":
+		player = body
 		player_pos = body.global_position
-		player_in_view = true
+		$Timer.start()
+		spotting = true
 
 func _on_ViewCone_body_exited(body):
 	if body.get_name() == "Player":
 		player_in_view = false
+		spotting = false
+
+
+func _on_Timer_timeout():
+	player_in_view = spotting
+		
