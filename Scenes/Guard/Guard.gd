@@ -25,7 +25,6 @@ func _ready():
 	current_point = current_way[current_point_index]
 	anim.playback_speed = speed / 300.0
 	player_in_view = false
-	pass # Replace with function body.
 
 func _physics_process(delta):
 	$ViewCone.rotation += (move_vec.angle() - $ViewCone.rotation) * 0.9 * delta
@@ -36,14 +35,14 @@ func _physics_process(delta):
 		if player_in_view:
 			player_pos = player.global_position
 			current_point = player_pos
-			$PlayerChecker.rotation = get_angle_to(player_pos)
-			print("player is in view")
-			print(player.global_position)
-			if $PlayerChecker.get_collider() != player:
+			$PlayerChecker.cast_to = (player_pos - self.position)/self.scale
+			if is_instance_valid($PlayerChecker.get_collider()) && $PlayerChecker.get_collider().name != "Player":
 				player_in_view = false
 		else:
-			print("no player in view")
 			current_point = current_way[current_point_index]
+			print(current_point)
+			print(current_way)
+			print(current_point_index)
 		
 		if move_vec.length() == 0:
 			anim.play("idle")
@@ -100,7 +99,6 @@ func _on_ViewCone_body_exited(body):
 	if body.get_name() == "Player":
 		player_in_view = false
 		spotting = false
-		print("exited")
 
 
 func _on_Timer_timeout():
