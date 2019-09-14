@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_arm_1.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_Weapon.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "attack"
 length = 0.2
 tracks/0/type = "value"
@@ -35,7 +35,7 @@ tracks/1/keys = {
 "values": [ 72.4302, 44.5772, 72.4302 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "idle"
 length = 0.1
 tracks/0/type = "value"
@@ -99,8 +99,7 @@ tracks/4/keys = {
 "values": [ -163.094 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "walk"
+[sub_resource type="Animation" id=3]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -152,10 +151,10 @@ tracks/3/keys = {
 "values": [ -260.0, -250.0, -260.0, -270.0, -260.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 25.0292, 24.8565 )
 
-[sub_resource type="NavigationPolygon" id=3]
+[sub_resource type="NavigationPolygon" id=5]
 vertices = PoolVector2Array( 223.268, 771.632, -204.299, 724.867, -114.109, 504.403, 91.3231, 599.603, 335.17, 582.901, 498.848, 723.197, 577.346, 547.827, 428.7, 460.978, 553.964, 317.342, 202.051, 170.478, 328.489, 362.437, 123.057, 298.97, -65.5955, 88.2199, -270.628, 139.785, -75.6952, 312.332, -233.796, 282.202 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5 ), PoolIntArray( 6, 5, 4, 7, 8 ), PoolIntArray( 9, 8, 7, 10 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 12, 11, 14, 15 ) ]
 outlines = [ PoolVector2Array( -233.796, 282.202, -270.628, 139.785, -65.5955, 88.2199, 202.051, 170.478, 553.964, 317.342, 577.346, 547.827, 498.848, 723.197, 223.268, 771.632, -204.299, 724.867, -114.109, 504.403, 91.3231, 599.603, 335.17, 582.901, 428.7, 460.978, 328.489, 362.437, 123.057, 298.97, -75.6952, 312.332 ) ]
@@ -232,37 +231,32 @@ rest = Transform2D( 1, 0, 0, 1, 1.2193, -2.14639 )
 [node name="leg_right" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( 16.0981, 2.11554 )
 rotation = 1.49648
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.0742478, 0.99724, -0.99724, 0.0742478, 16.0981, 2.11554 )
 
 [node name="leg_left" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( -11.5266, 3.65126 )
 rotation = 1.46519
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.105412, 0.994429, -0.994429, 0.105412, -11.5266, 3.65126 )
 
 [node name="arm_right" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( 23.5461, -52.2046 )
 rotation = 1.26414
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.301868, 0.95335, -0.95335, 0.301868, 23.5461, -52.2046 )
 
 [node name="Weapon" type="Bone2D" parent="Skeleton2D/Center/arm_right"]
 position = Vector2( 29.9567, -12.1282 )
 rotation = -2.84653
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.956784, -0.290798, 0.290798, -0.956784, 29.9567, -12.1282 )
 
 [node name="arm_left" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( -22.1507, -49.3905 )
 rotation = 1.8984
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.321774, 0.946817, -0.946817, -0.321774, -22.1507, -49.3905 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 5 )
-anims/idle = SubResource( 4 )
-anims/walk = SubResource( 1 )
+anims/attack = SubResource( 1 )
+anims/idle = SubResource( 2 )
+anims/walk = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1, -45 )
@@ -270,13 +264,13 @@ zoom = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.34885, 15.551 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
 position = Vector2( 168.743, -210.564 )
-navpoly = SubResource( 3 )
+navpoly = SubResource( 5 )
 
 [node name="EinePosition" type="Position2D" parent="Navigation2D/NavigationPolygonInstance"]
 position = Vector2( -66.3348, 642.682 )

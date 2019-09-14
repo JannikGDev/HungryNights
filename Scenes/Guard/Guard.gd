@@ -6,6 +6,8 @@ var move_vec = Vector2()
 export var speed = 100
 
 onready var anim: AnimationPlayer = get_node("AnimationPlayer")
+onready var polygons: Node2D = get_node("polygons")
+onready var skeleton: Skeleton2D = get_node("Skeleton2D")
 
 var attacking: bool = false
 
@@ -30,10 +32,16 @@ func _physics_process(delta):
 			anim.play("idle")
 		else:
 			anim.play("walk")
+			if move_vec.x > 0:
+				polygons.scale.x = abs(polygons.scale.x)
+				skeleton.scale.x = abs(skeleton.scale.x)
+			if move_vec.x < 0:
+				polygons.scale.x = -abs(polygons.scale.x)
+				skeleton.scale.x = -abs(skeleton.scale.x)
 		
-		if attacking:
-			if !anim.is_playing():
-				attacking = false
+	if attacking:
+		if !anim.is_playing():
+			attacking = false
 
 func start_attack():
 	attacking = true
