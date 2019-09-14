@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Person/Person.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_body.png" type="Texture" id=2]
@@ -60,9 +60,13 @@ tracks/3/keys = {
 "values": [ -260.0, -250.0, -260.0, -270.0, -260.0 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 43.2369
-height = 129.312
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 25.0292, 24.8565 )
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 223.268, 771.632, -204.299, 724.867, -114.109, 504.403, 91.3231, 599.603, 335.17, 582.901, 498.848, 723.197, 577.346, 547.827, 428.7, 460.978, 553.964, 317.342, 202.051, 170.478, 328.489, 362.437, 123.057, 298.97, -65.5955, 88.2199, -270.628, 139.785, -75.6952, 312.332, -233.796, 282.202 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 3, 4, 5 ), PoolIntArray( 6, 5, 4, 7, 8 ), PoolIntArray( 9, 8, 7, 10 ), PoolIntArray( 9, 10, 11, 12 ), PoolIntArray( 13, 12, 11, 14, 15 ) ]
+outlines = [ PoolVector2Array( -233.796, 282.202, -270.628, 139.785, -65.5955, 88.2199, 202.051, 170.478, 553.964, 317.342, 577.346, 547.827, 498.848, 723.197, 223.268, 771.632, -204.299, 724.867, -114.109, 504.403, 91.3231, 599.603, 335.17, 582.901, 428.7, 460.978, 328.489, 362.437, 123.057, 298.97, -75.6952, 312.332 ) ]
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -164,9 +168,17 @@ anims/test = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1, -45 )
-current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 3.90137, -39.0139 )
+position = Vector2( 2.34885, 15.551 )
 shape = SubResource( 2 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+position = Vector2( 168.743, -210.564 )
+navpoly = SubResource( 3 )
+
+[node name="EinePosition" type="Position2D" parent="Navigation2D/NavigationPolygonInstance"]
+position = Vector2( -66.3348, 642.682 )
