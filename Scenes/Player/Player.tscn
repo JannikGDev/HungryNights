@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/Person/Person.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player/CHAR_Vamp_Body.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Player/CHAR_Vamp_leg_left.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Player/CHAR_Vamp_leg_right.png" type="Texture" id=4]
@@ -185,6 +185,7 @@ height = 103.092
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
+baseSpeed = 200
 
 [node name="polygons" type="Node2D" parent="."]
 editor/display_folded = true
@@ -247,7 +248,6 @@ rest = Transform2D( 1, 0, 0, 1, 1.43394, 0 )
 [node name="leg_right" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( 7.72714, 25.0819 )
 rotation = 1.4089
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.161192, 0.986923, -0.986923, 0.161192, 7.72714, 25.0819 )
 
 [node name="leg_left" type="Bone2D" parent="Skeleton2D/Center"]
@@ -258,14 +258,12 @@ rest = Transform2D( -0.0919354, 0.995765, -0.995765, -0.0919354, -10.4534, 24.25
 [node name="arm_right" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( 34.278, -46.624 )
 rotation = 1.48261
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.0880673, 0.996115, -0.996115, 0.0880673, 34.278, -46.624 )
 default_length = 48.0
 
 [node name="arm_left" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( -29.8777, -39.0878 )
 rotation = 1.55157
-scale = Vector2( 1, 1 )
 rest = Transform2D( 0.0192242, 0.999815, -0.999815, 0.0192242, -29.8777, -39.0878 )
 default_length = 48.0
 
