@@ -37,12 +37,12 @@ func _physics_process(delta):
 			player_pos = player.global_position
 			current_point = player_pos
 			$PlayerChecker.rotation = get_angle_to(player_pos)
-			print("player is in view")
-			print(player.global_position)
+			#print("player is in view")
+			#print(player.global_position)
 			if $PlayerChecker.get_collider() != player:
 				player_in_view = false
 		else:
-			print("no player in view")
+			#print("no player in view")
 			current_point = current_way[current_point_index]
 		
 		if move_vec.length() == 0:
@@ -100,7 +100,7 @@ func _on_ViewCone_body_exited(body):
 	if body.get_name() == "Player":
 		player_in_view = false
 		spotting = false
-		print("exited")
+		#print("exited")
 
 
 func _on_Timer_timeout():

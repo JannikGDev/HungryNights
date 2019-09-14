@@ -75,7 +75,7 @@ func _process(delta):
 					var root: Node2D = get_parent()
 					for i in range(0,5):
 						var g: KinematicBody2D = Guard.instance()
-						var offset: Vector2 = Vector2(200,0)
+						var offset: Vector2 = Vector2(100,0)
 						g.position = self.position + offset.rotated(randi()%360)
 						g.z_index = 1
 						g.scale = Vector2(0.35,0.35)
