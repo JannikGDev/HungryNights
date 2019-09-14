@@ -7,6 +7,7 @@ onready var anim: AnimationPlayer = get_node("AnimationPlayer")
 onready var polygons: Node2D = get_node("polygons")
 onready var skeleton: Node2D = get_node("Skeleton2D")
 onready var attackBox: Area2D = get_node("AttackBox")
+onready var Guard = preload("res://Scenes/Guard/Guard.tscn")
 var move = Vector2()
 
 var attacking: bool = false
@@ -71,7 +72,16 @@ func _process(delta):
 		for entity in victims:
 			if !entity.is_in_group("player") and entity.is_in_group("killable"):
 				if entity.kill():
-					pass
+					var root: Node2D = get_parent()
+					for i in range(0,5):
+						var g: KinematicBody2D = Guard.instance()
+						var offset: Vector2 = Vector2(200,0)
+						g.position = self.position + offset.rotated(randi()%360)
+						g.z_index = 1
+						g.scale = Vector2(0.35,0.35)
+						g.speed = 100
+						
+						root.add_child(g)
 
 func attacked():
 	emit_signal("player_attacked")
