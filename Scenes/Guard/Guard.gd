@@ -44,14 +44,15 @@ func _physics_process(delta):
 				
 		
 		if is_instance_valid(collider) && collider.get_collider().name == "Player":
-			start_attack()
+			start_attack(collider.get_collider())
 			
 	if attacking:
 		if !anim.is_playing():
 			attacking = false
 
-func start_attack():
+func start_attack(body):
 	attacking = true
+	body.attacked()
 	anim.play("attack")
 
 func move_to_point(point, delta):

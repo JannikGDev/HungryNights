@@ -10,6 +10,8 @@ var move = Vector2()
 
 var attacking: bool = false
 
+signal player_attacked
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -62,3 +64,5 @@ func _process(delta):
 
 	attackCheck(delta)
 
+func attacked():
+	emit_signal("player_attacked")

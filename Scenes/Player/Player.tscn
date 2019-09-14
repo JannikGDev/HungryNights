@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player/CHAR_Vamp_Body.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Player/CHAR_Vamp_leg_right.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Player/CHAR_Vamp_Arm_right.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Player/CHAR_Vamp_Arm_left.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Smoke/Smoke.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
@@ -183,7 +184,7 @@ tracks/5/keys = {
 radius = 49.7841
 height = 103.092
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 baseSpeed = 200
 
@@ -239,9 +240,11 @@ uv = PoolVector2Array( 434.293, 1041.27, 439.053, 1180.18, 447.707, 1432.73, 505
 bones = [ NodePath("Center"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_left"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+editor/display_folded = true
 visible = false
 
 [node name="Center" type="Bone2D" parent="Skeleton2D"]
+editor/display_folded = true
 position = Vector2( 1.43394, 0 )
 rest = Transform2D( 1, 0, 0, 1, 1.43394, 0 )
 
@@ -279,3 +282,5 @@ shape = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Smoke" parent="." instance=ExtResource( 7 )]
