@@ -154,7 +154,7 @@ tracks/3/keys = {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 25.0292, 24.8565 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 800, 200, 800, -200 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -263,6 +263,7 @@ position = Vector2( 1, -45 )
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 2.34885, 15.551 )
 shape = SubResource( 4 )
 
@@ -273,7 +274,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ViewCone"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="PlayerChecker" type="RayCast2D" parent="."]
 enabled = true
