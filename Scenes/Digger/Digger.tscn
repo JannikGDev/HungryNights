@@ -198,7 +198,9 @@ tracks/4/keys = {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 35.8457, 37.5011 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="GraveDigger" type="KinematicBody2D" groups=[
+"killable",
+]]
 z_index = 1
 script = ExtResource( 1 )
 

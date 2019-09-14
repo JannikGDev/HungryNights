@@ -6,6 +6,7 @@ export var baseSpeed = 300
 onready var anim: AnimationPlayer = get_node("AnimationPlayer")
 onready var polygons: Node2D = get_node("polygons")
 onready var skeleton: Node2D = get_node("Skeleton2D")
+onready var attackBox: Area2D = get_node("AttackBox")
 var move = Vector2()
 
 var attacking: bool = false
@@ -63,6 +64,14 @@ func _process(delta):
 		movement(delta)
 
 	attackCheck(delta)
+	
+	if attacking:
+		var victims = attackBox.get_overlapping_bodies()
+		
+		for entity in victims:
+			if !entity.is_in_group("player") and entity.is_in_group("killable"):
+				if entity.kill():
+					pass
 
 func attacked():
 	emit_signal("player_attacked")
