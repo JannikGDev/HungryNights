@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 # Declare member variables here. Examples:
 export var speed = 50
+export var female = false
 
 onready var anim: AnimationPlayer = get_node("AnimationPlayer")
 onready var polygons: Node2D = get_node("polygons")
@@ -71,6 +72,10 @@ func movement(delta):
 func kill():
 	if alive:
 		alive = false
+		if female:
+			get_node("/root/AudioManager").play_audio_file("scream_woman2")
+		else:
+			get_node("/root/AudioManager").play_audio_file("scream_man")
 		anim.play("idle")
 		return true
 	else:
