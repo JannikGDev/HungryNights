@@ -24,6 +24,7 @@ var attacking: bool = false
 var spotting: bool = false
 var alive: bool = true
 var end_rotation: bool = false
+var spotted_player: Node2D = null
 
 
 func findNearestPatrolePoint():
@@ -54,8 +55,10 @@ func _ready():
 
 func _physics_process(delta):
 	if alive:
-	
-		$ViewCone.rotation += (move_vec.angle() - $ViewCone.rotation) * delta
+		if spotting:
+			$ViewCone.rotation = move_vec.angle()
+		else:
+			$ViewCone.rotation += (move_vec.angle() - $ViewCone.rotation)*delta*0.5
 		VisionCone.rotation = move_vec.angle()
 		
 		spottedSprite.visible = spotting
@@ -63,7 +66,12 @@ func _physics_process(delta):
 		if !attacking:
 			
 			move_to_point(current_point, delta)
-			collider = move_and_collide(move_vec * delta * abs(scale.x))
+			
+			var turbo = 1
+			if player_in_view:
+				turbo = 2
+			
+			collider = move_and_collide(move_vec * delta * abs(scale.x)*turbo)
 			
 			if player_in_view:
 				player_pos = player.global_position
@@ -71,6 +79,9 @@ func _physics_process(delta):
 				$PlayerChecker.cast_to = (player_pos - self.position)/self.scale
 				if is_instance_valid($PlayerChecker.get_collider()) && $PlayerChecker.get_collider().name != "Player":
 					player_in_view = false
+					currentPatrole = findNearestPatrolePoint()
+					current_way = navigation.get_simple_path(global_position, get_node("../PatrolNavigation/P"+str(currentPatrole)).global_position)
+					current_point_index = 0
 			else:
 				current_point = current_way[current_point_index]
 			
@@ -145,6 +156,7 @@ func _on_ViewCone_body_entered(body):
 		player_pos = body.global_position
 		$Timer.start()
 		spotting = true
+		spotted_player = body
 
 func _on_ViewCone_body_exited(body):
 	if body.get_name() == "Player":
