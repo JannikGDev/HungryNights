@@ -289,6 +289,8 @@ tile_data = PoolIntArray( -2293737, 21, 131072, -2293736, 21, 131073, -2293735, 
 scale = Vector2( 0.3, 0.3 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 171, 170 )
+collision_layer = 3
+collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -720894, 2, 0, -524268, 1, 0, -524267, 1, 1, -524266, 1, 2, -524265, 1, 2, -524264, 1, 2, -524263, 3, 4, -524262, 3, 5, -458732, 1, 65536, -458731, 1, 65537, -458730, 1, 65538, -458729, 1, 65539, -458728, 1, 65538, -458727, 3, 65540, -458726, 3, 65541, -393196, 1, 131072, -393195, 1, 131073, -393194, 1, 131074, -393193, 1, 131074, -393192, 1, 131074, -393191, 3, 131076, -393190, 3, 131077, -327660, 1, 196608, -327659, 1, 196609, -327658, 1, 196610, -327657, 1, 196610, -327656, 1, 196610, -327655, 3, 196612, -327654, 3, 196613, -65535, 2, 0, 20, 0, 0 )
 
@@ -301,6 +303,8 @@ tile_data = PoolIntArray( -2424808, 5, 0, -2162673, 6, 0, -1900524, 23, 0, -1703
 [node name="Church&Coffin" type="TileMap" parent="WorldEnvironment"]
 scale = Vector2( 0.35, 0.35 )
 tile_set = SubResource( 4 )
+collision_layer = 3
+collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -1376232, 0, 0, 1114147, 2, 0, 1245210, 1, 0 )
 
@@ -323,25 +327,30 @@ z_index = 1
 baseSpeed = 300
 
 [node name="guard" parent="." instance=ExtResource( 17 )]
-position = Vector2( 1067.96, -688.407 )
+position = Vector2( 432.871, -437.437 )
 scale = Vector2( 0.35, 0.35 )
 z_index = 1
-speed = 100
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 
 [node name="PatrolNavigation" type="Navigation2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="PatrolNavigation"]
 position = Vector2( 91.0995, 71.5781 )
 navpoly = SubResource( 15 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="P1" type="Position2D" parent="PatrolNavigation"]
 position = Vector2( 770.605, -1067.36 )
 
 [node name="P2" type="Position2D" parent="PatrolNavigation"]
-position = Vector2( 1001.29, -927.88 )
+position = Vector2( 995.711, -975.302 )
 
 [node name="P3" type="Position2D" parent="PatrolNavigation"]
 position = Vector2( 1057.08, -601.947 )
@@ -353,16 +362,16 @@ position = Vector2( 954.307, -375.85 )
 position = Vector2( 992.479, -88.0898 )
 
 [node name="P6" type="Position2D" parent="PatrolNavigation"]
-position = Vector2( 974.861, 190.861 )
+position = Vector2( 969.282, 266.178 )
 
 [node name="P7" type="Position2D" parent="PatrolNavigation"]
-position = Vector2( 836.854, 314.187 )
+position = Vector2( 711.326, 330.924 )
 
 [node name="P8" type="Position2D" parent="PatrolNavigation"]
-position = Vector2( 487.431, 284.824 )
+position = Vector2( 473.483, 240.192 )
 
 [node name="P9" type="Position2D" parent="PatrolNavigation"]
-position = Vector2( 458.067, -5.87256 )
+position = Vector2( 396.698, -156.506 )
 
 [node name="P10" type="Position2D" parent="PatrolNavigation"]
 position = Vector2( 449.258, -408.15 )
