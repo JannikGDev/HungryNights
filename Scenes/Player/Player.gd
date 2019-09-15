@@ -79,7 +79,7 @@ func _process(delta):
 						var g: KinematicBody2D = Guard.instance()
 						var offset: Vector2 = Vector2(guardSpawnDis,0)
 						g.position = self.position + offset.rotated(randi()%360)
-						g.position = clamp_vector(g.position, Vector2(400, -1000), Vector2(1100, 300))
+						g.position = clamp_vector(g.position, Vector2(400, -800), Vector2(1100, 300))
 						g.z_index = 1
 						g.scale = Vector2(0.35,0.35)
 						g.speed = 100

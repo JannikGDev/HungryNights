@@ -162,13 +162,11 @@ rest = Transform2D( 1, 0, 0, 1, 1.43394, 0 )
 [node name="leg_left" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( -31.0882, 8.17773 )
 rotation = 1.75732
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.185443, 0.982655, -0.982655, -0.185443, -31.0882, 8.17773 )
 
 [node name="leg_right" type="Bone2D" parent="Skeleton2D/Center"]
 position = Vector2( 24.0678, 13.284 )
 rotation = 1.63353
-scale = Vector2( 1, 1 )
 rest = Transform2D( -0.0626875, 0.998033, -0.998033, -0.0626875, 24.0678, 13.284 )
 
 [node name="arm_right" type="Bone2D" parent="Skeleton2D/Center"]
@@ -193,7 +191,7 @@ visible = false
 position = Vector2( -3.25806, -171.862 )
 texture = ExtResource( 6 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.58887, 28.9968 )
 shape = SubResource( 3 )
 
@@ -203,7 +201,6 @@ texture = ExtResource( 7 )
 offset = Vector2( 550, 185 )
 
 [node name="Vision" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 position = Vector2( 2.31358, -55.2516 )

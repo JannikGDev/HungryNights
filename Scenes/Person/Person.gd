@@ -90,6 +90,7 @@ func movement(delta):
 func kill():
 	if alive:
 		alive = false
+		get_node("CollisionShape2D").disabled = true
 		if female:
 			get_node("/root/AudioManager").play_audio_file("scream_woman2")
 		else:
