@@ -77,6 +77,7 @@ func _process(delta):
 						var g: KinematicBody2D = Guard.instance()
 						var offset: Vector2 = Vector2(100,0)
 						g.position = self.position + offset.rotated(randi()%360)
+						g.position = clamp_vector(g.position, Vector2(400, -1000), Vector2(1100, 300))
 						g.z_index = 1
 						g.scale = Vector2(0.35,0.35)
 						g.speed = 100
@@ -86,3 +87,11 @@ func _process(delta):
 func attacked():
 	emit_signal("player_attacked")
 	queue_free()
+	
+func clamp_vector(vec: Vector2, min_vec: Vector2, max_vec: Vector2):
+	
+	var result: Vector2 = Vector2()
+	result.x = max(min(vec.x,max_vec.x), min_vec.x)
+	result.y = max(min(vec.y,max_vec.y), min_vec.y)
+	
+	return result

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Guard/Guard.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_body.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_arm_2.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_arm_1.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Guard/CHAR_Guard_Weapon.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Person/cone.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Person/spotted.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "attack"
@@ -155,7 +157,7 @@ tracks/3/keys = {
 extents = Vector2( 25.0292, 24.8565 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 0, 0, 800, 200, 800, -200 )
+points = PoolVector2Array( 80, 20, 900, -200, 900, 195, 50, 50, 0, 45 )
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
 script = ExtResource( 1 )
@@ -267,13 +269,20 @@ visible = false
 position = Vector2( 2.34885, 15.551 )
 shape = SubResource( 4 )
 
+[node name="VisionCone" type="Sprite" parent="."]
+position = Vector2( 16.4796, -46.7973 )
+texture = ExtResource( 7 )
+offset = Vector2( 550, 185 )
+
 [node name="ViewCone" type="Area2D" parent="."]
+editor/display_folded = true
 position = Vector2( 3.31714, -35.1614 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ViewCone"]
+position = Vector2( 2.31358, -55.2516 )
 shape = SubResource( 5 )
 
 [node name="PlayerChecker" type="RayCast2D" parent="."]
@@ -283,6 +292,11 @@ cast_to = Vector2( 800, 0 )
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Spotted" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.74194, -196.862 )
+texture = ExtResource( 8 )
 [connection signal="body_entered" from="ViewCone" to="." method="_on_ViewCone_body_entered"]
 [connection signal="body_exited" from="ViewCone" to="." method="_on_ViewCone_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

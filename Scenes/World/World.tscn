@@ -17,8 +17,7 @@
 [ext_resource path="res://Assets/Tree_02.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Guard/Guard.tscn" type="PackedScene" id=17]
-[ext_resource path="res://res/world_polygon.tres" type="NavigationPolygon" id=18]
-[ext_resource path="res://Scenes/Digger/Digger.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Digger/Digger.tscn" type="PackedScene" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 704, 128, 640, 128, 512, 192, 448, 512, 448, 512, 256, 704, 128, 832, 256, 832, 704, 896, 832, 896, 896, 960, 1024, 960, 1088, 320, 1088, 64, 1024 )
@@ -252,6 +251,11 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 } ]
 8/z_index = 0
 
+[sub_resource type="NavigationPolygon" id=15]
+vertices = PoolVector2Array( 9.79572, -1364.67, 1252.33, -1373.94, 1281.32, 422.313, 55.2426, 442.862 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 9.79572, -1364.67, 1252.33, -1373.94, 1281.32, 422.313, 55.2426, 442.862 ) ]
+
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -316,7 +320,7 @@ tile_data = PoolIntArray( -4063189, 1, 0, -3997684, 4, 0, -3932113, 1, 0, -38010
 position = Vector2( 688.345, 259.075 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 1
-baseSpeed = 150
+baseSpeed = 300
 
 [node name="guard" parent="." instance=ExtResource( 17 )]
 position = Vector2( 1067.96, -688.407 )
@@ -330,12 +334,46 @@ visible = false
 [node name="PatrolNavigation" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="PatrolNavigation"]
-navpoly = ExtResource( 18 )
+position = Vector2( 91.0995, 71.5781 )
+navpoly = SubResource( 15 )
 
-[node name="PatrolePoint" type="Position2D" parent="PatrolNavigation"]
-position = Vector2( 429.991, 139.474 )
+[node name="P1" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 770.605, -1067.36 )
 
-[node name="GraveDigger" parent="." instance=ExtResource( 19 )]
+[node name="P2" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 1001.29, -927.88 )
+
+[node name="P3" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 1057.08, -601.947 )
+
+[node name="P4" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 954.307, -375.85 )
+
+[node name="P5" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 992.479, -88.0898 )
+
+[node name="P6" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 974.861, 190.861 )
+
+[node name="P7" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 836.854, 314.187 )
+
+[node name="P8" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 487.431, 284.824 )
+
+[node name="P9" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 458.067, -5.87256 )
+
+[node name="P10" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 449.258, -408.15 )
+
+[node name="P11" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 431.64, -748.764 )
+
+[node name="P12" type="Position2D" parent="PatrolNavigation"]
+position = Vector2( 519.73, -939.625 )
+
+[node name="GraveDigger" parent="." instance=ExtResource( 18 )]
 position = Vector2( 846.783, -454.29 )
 scale = Vector2( 0.4, 0.4 )
 [connection signal="player_attacked" from="Player" to="." method="_on_vampire_player_attacked"]
