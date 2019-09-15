@@ -12,6 +12,9 @@ func _on_vampire_player_attacked():
 	$Camera2D.global_position = $Player.global_position
 	$Camera2D.current = true
 	add_child(smoke_instance)
+	var state = get_node("/root/GameState")
+	state.is_game_over = true
+	state.game_over_state = state.game_over.KILLED
 
 
 func _on_Area2D_body_entered(body):
