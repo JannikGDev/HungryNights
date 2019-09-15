@@ -27,7 +27,7 @@
 [ext_resource path="res://Scenes/Nun/Nun.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 64, 704, 128, 640, 128, 512, 192, 448, 512, 448, 512, 256, 704, 128, 832, 256, 832, 704, 896, 832, 896, 896, 960, 1024, 960, 1088, 320, 1088, 64, 1024 )
+points = PoolVector2Array( 32, 832, 32, 704, 128, 640, 128, 512, 544, 448, 544, 256, 832, 256, 800, 672, 896, 800, 896, 928, 960, 992, 960, 1088, 320, 1088, 320, 1056, 928, 1056, 928, 992, 800, 928 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 64, 64, 320, 64, 576, 192, 640, 256, 512, 320, 64, 192 )
