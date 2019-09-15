@@ -36,7 +36,7 @@ func findNearestPatrolePoint():
 		
 		if (p.global_position - self.global_position).length() < (nearest - self.global_position).length():
 			nearest = p.global_position
-			chosen = i
+			chosen = i+1
 	
 	return chosen
 
