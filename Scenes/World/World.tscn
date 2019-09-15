@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Ui/GameUi.tscn" type="PackedScene" id=2]
@@ -21,6 +21,10 @@
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Guard/Guard.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Scenes/Digger/Digger.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/Dummy/DummyFemale.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Scenes/Dummy/DummyMale.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scenes/Mayor/Mayor.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Scenes/Nun/Nun.tscn" type="PackedScene" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 704, 128, 640, 128, 512, 192, 448, 512, 448, 512, 256, 704, 128, 832, 256, 832, 704, 896, 832, 896, 896, 960, 1024, 960, 1088, 320, 1088, 64, 1024 )
@@ -343,6 +347,7 @@ format = 1
 tile_data = PoolIntArray( -4063189, 1, 0, -3997684, 4, 0, -3932113, 1, 0, -3801058, 8, 0, -3801048, 1, 0, -3801037, 0, 0, -3538942, 7, 0, -3342295, 1, 0, -2949093, 7, 0, -2883557, 7, 0, -2818037, 5, 0, -2686926, 1, 0, -2293735, 4, 0, -2097120, 6, 0, -1900499, 1, 0, -1179631, 6, 0, -851965, 5, 0, 25, 1, 0, 655400, 2, 0, 983054, 3, 0, 1179691, 3, 0 )
 
 [node name="Lanterns" type="Node" parent="WorldEnvironment"]
+editor/display_folded = true
 
 [node name="Lantern" parent="WorldEnvironment/Lanterns" instance=ExtResource( 18 )]
 position = Vector2( 1030.63, 248.473 )
@@ -459,6 +464,22 @@ shape = SubResource( 16 )
 position = Vector2( 177.866, 72.3522 )
 z_index = 1
 shape = SubResource( 16 )
+
+[node name="Female" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1061.09, -803.338 )
+scale = Vector2( 0.35, 0.35 )
+
+[node name="Male" parent="." instance=ExtResource( 23 )]
+position = Vector2( 442.48, -796.178 )
+scale = Vector2( 0.35, 0.35 )
+
+[node name="Mayor" parent="." instance=ExtResource( 24 )]
+position = Vector2( 1008.11, 213.364 )
+scale = Vector2( 0.35, 0.35 )
+
+[node name="Nun" parent="." instance=ExtResource( 25 )]
+position = Vector2( 562.766, -90.2145 )
+scale = Vector2( 0.35, 0.35 )
 [connection signal="player_attacked" from="Player" to="." method="_on_vampire_player_attacked"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
