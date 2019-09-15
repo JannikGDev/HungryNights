@@ -1,29 +1,35 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Ui/Control.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Ui/over.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Ui/fill.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Ui/Awareness_font.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Ui/Awareness_fill.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Ui/clock.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Ui/pointer.png" type="Texture" id=5]
-
+[ext_resource path="res://Scenes/Ui/Clockzeiger.png" type="Texture" id=5]
 
 [node name="GameUi" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 0.88031
+margin_top = -0.440125
+margin_right = 0.880371
+margin_bottom = -0.440125
 script = ExtResource( 1 )
 
 [node name="Attention" type="TextureProgress" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-value = 50.0
+margin_right = 329.0
+margin_bottom = 326.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+value = 100.0
 texture_over = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 fill_mode = 3
 
 [node name="Clock" type="Sprite" parent="."]
-position = Vector2( 923.995, 102.608 )
+position = Vector2( 798.36, 259.86 )
 texture = ExtResource( 4 )
 
 [node name="Pointer" type="Sprite" parent="Clock"]
+position = Vector2( -0.418152, 54.7738 )
 texture = ExtResource( 5 )
 offset = Vector2( 0, -32 )
