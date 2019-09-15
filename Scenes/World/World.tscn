@@ -335,6 +335,7 @@ z_index = 1
 visible = false
 
 [node name="PatrolNavigation" type="Navigation2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_group_": true
 }
