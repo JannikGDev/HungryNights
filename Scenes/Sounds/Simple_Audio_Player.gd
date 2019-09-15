@@ -1,50 +1,17 @@
 extends Node2D
+## Audio Player
 
-var audio_node = null
-var should_loop = false
-var globals = null
-var initialized = false
+onready var audio_player_object = get_node("AudioStreamPlayer2D")
+var audio_test_file = preload ("res://Assets/Sounds/Effects/scream_woman2.wav")
 
-#var fix = preload("res://Assets/Sounds/Ambience/cantina.wav")
-var fix = preload("res://Assets/Sounds/Effects/scream_woman2.wav")
-
-
-func _ready():
-	initialized = true
-	audio_node = get_node("AudioStreamPlayer2D")
-	audio_node.connect("finished", self, "sound_finished")
-	audio_node.stop()
-	audio_node.stream = fix
-	audio_node.play ()
-
-	globals = load("res://Global/AudioManager.gd").new()
-	#globals = get_node("Global/AudioManager")
-
-func play_sound(audio_stream):
-	if !initialized:
-		_ready()
-
-	if audio_stream == null:
-		print ("No audio stream passed; cannot play sound")
-		globals.created_audio.remove(globals.created_audio.find(self))
-		queue_free()
-		return
-
-	#audio_node = get_node("AudioStreamPlayer2D")
-	#audio_node.stream = audio_stream
-	var stream:AudioStream
-	stream = fix
-	audio_node.stream = fix
 	
-	print (audio_node)
-	print (is_instance_valid(audio_node))
+func play_audio (audio_file):
+	audio_player_object = get_node("AudioStreamPlayer2D")
+	audio_player_object.stream = audio_file
+	audio_player_object.play()
 
-	audio_node.play()
 
-func sound_finished():
-	if should_loop:
-		audio_node.play()
-	else:
-		globals.created_audio.remove(globals.created_audio.find(self))
-		audio_node.stop()
-		queue_free()
+func play_test_sound ():
+	print ("playing test sound")
+	audio_player_object.stream = audio_test_file
+	audio_player_object.play ()

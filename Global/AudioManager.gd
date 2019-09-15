@@ -1,26 +1,27 @@
 extends Node
 
-var audio_clips = {
-	"scream_woman":preload("res://Assets/Sounds/Effects/morning.wav"),
-	"scream_man":preload("res://Assets/Sounds/Effects/scream_man.wav"),
-	"morning":preload("res://Assets/Sounds/Effects/scream_woman2.wav")
-}
+var audio_player_scene = preload("res://Scenes/Sounds/Simple_Audio_Player.tscn")
+#onready var audio_player_instance = audio_player_scene.instance ()
 
-const SIMPLE_AUDIO_PLAYER_SCENE = preload("res://Scenes/Sounds/Simple_Audio_Player.tscn")
-var created_audio = []
+var audio_file_dict = {
+	"scream_woman":preload ("res://Assets/Sounds/Effects/scream_woman.wav"),
+	"scream_woman2":preload ("res://Assets/Sounds/Effects/scream_woman2.wav"),
+	"morning":preload ("res://Assets/Sounds/Effects/morning.wav"),
+	"scream_man":preload ("res://Assets/Sounds/Effects/scream_man.wav"),
+	"ambient5":preload ("res://Assets/Sounds/Ambience/ambient5.wav")
+	}
 
-
-func play_sound(sound_name, loop_sound=false):
-	print ("a2")
-	if audio_clips.has(sound_name):
-		print ("a3")
-		var new_audio = SIMPLE_AUDIO_PLAYER_SCENE.instance()
-		new_audio.should_loop = loop_sound
-		
-		add_child(new_audio)
-		created_audio.append(new_audio)
-		
-		new_audio.play_sound(audio_clips[sound_name])
-
-	else:
-		print ("ERROR: cannot play sound that does not exist in audio_clips!")
+func play_audio_file (audio_file_name):
+	 ###'scream_woman', 'scream_woman2', 'morning', 'scream_man', 'ambient5'###
+	
+	
+	var audio_file = audio_file_dict[audio_file_name]
+	
+	var audio_player_instance = audio_player_scene.instance ()
+	add_child(audio_player_instance)
+	#audio_player_instance.play_test_sound()
+	audio_player_instance.play_audio(audio_file)
+	
+	
+	
+	
