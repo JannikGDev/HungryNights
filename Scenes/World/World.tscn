@@ -78,32 +78,32 @@ points = PoolVector2Array( 64, 256, 64, 64, 192, 64, 192, 256 )
 } ]
 2/z_index = 0
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 128, 64, 192, 64, 320, 256, 256, 320, 64, 320, 0, 256 )
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 96, 320, 128, 224, 192, 224, 224, 320 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
-points = PoolVector2Array( 128, 64, 192, 64, 320, 256, 256, 320, 64, 320, 0, 256 )
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 128, 224, 192, 224, 224, 320, 96, 320 )
 
-[sub_resource type="ConvexPolygonShape2D" id=7]
-points = PoolVector2Array( 192, 384, 192, 256, 128, 256, 128, 192, 256, 192, 256, 256, 256, 384 )
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 160, 320, 256, 320, 256, 384, 160, 384 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-points = PoolVector2Array( 192, 384, 192, 256, 128, 256, 128, 192, 320, 192, 320, 256, 256, 256, 256, 384 )
+points = PoolVector2Array( 192, 384, 192, 320, 192, 288, 224, 288, 256, 288, 256, 320, 256, 320, 256, 384 )
 
-[sub_resource type="ConvexPolygonShape2D" id=9]
-points = PoolVector2Array( 192, 320, 128, 256, 192, 192, 256, 192, 320, 256, 256, 320, 256, 448, 192, 448 )
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 192, 416, 192, 352, 256, 352, 256, 416 )
 
-[sub_resource type="ConvexPolygonShape2D" id=10]
-points = PoolVector2Array( 192, 320, 128, 256, 192, 192, 256, 192, 320, 256, 256, 320, 256, 448, 192, 448 )
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 192, 416, 192, 352, 256, 352, 256, 416 )
 
-[sub_resource type="ConvexPolygonShape2D" id=11]
-points = PoolVector2Array( 192, 448, 192, 320, 128, 256, 192, 192, 256, 192, 320, 256, 256, 320, 256, 448 )
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 192, 416, 192, 352, 256, 352, 256, 416 )
 
-[sub_resource type="ConvexPolygonShape2D" id=12]
-points = PoolVector2Array( 128, 384, 128, 256, 192, 192, 192, 192, 256, 256, 256, 320, 256, 384, 192, 448 )
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( 160, 416, 160, 320, 224, 320, 224, 416, 192, 416 )
 
-[sub_resource type="ConvexPolygonShape2D" id=13]
-points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192, 64, 256, 128, 320, 192, 256, 256, 256, 320, 256, 384, 192, 384 )
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 192, 416, 192, 320, 224, 320, 224, 416 )
 
 [sub_resource type="TileSet" id=14]
 0/name = "Abies.png 0"
@@ -118,7 +118,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 16 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -134,7 +134,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 17 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -150,7 +150,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 18 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -182,7 +182,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 19 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -198,7 +198,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 10 ),
+"shape": SubResource( 20 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -214,7 +214,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 21 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -230,7 +230,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 12 ),
+"shape": SubResource( 22 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -246,7 +246,7 @@ points = PoolVector2Array( 192, 448, 192, 384, 192, 320, 128, 256, 128, 128, 192
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 13 ),
+"shape": SubResource( 23 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
@@ -292,7 +292,17 @@ cell_size = Vector2( 171, 170 )
 collision_layer = 3
 collision_mask = 3
 format = 1
-tile_data = PoolIntArray( -720894, 2, 0, -524268, 1, 0, -524267, 1, 1, -524266, 1, 2, -524265, 1, 2, -524264, 1, 2, -524263, 3, 4, -524262, 3, 5, -458732, 1, 65536, -458731, 1, 65537, -458730, 1, 65538, -458729, 1, 65539, -458728, 1, 65538, -458727, 3, 65540, -458726, 3, 65541, -393196, 1, 131072, -393195, 1, 131073, -393194, 1, 131074, -393193, 1, 131074, -393192, 1, 131074, -393191, 3, 131076, -393190, 3, 131077, -327660, 1, 196608, -327659, 1, 196609, -327658, 1, 196610, -327657, 1, 196610, -327656, 1, 196610, -327655, 3, 196612, -327654, 3, 196613, -65535, 2, 0, 20, 0, 0 )
+tile_data = PoolIntArray( -720894, 2, 0, -524267, 0, 0, -65535, 2, 0, 20, 0, 0 )
+
+[node name="HousesInside" type="TileMap" parent="WorldEnvironment"]
+visible = false
+scale = Vector2( 0.3, 0.3 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 171, 170 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -720894, 2, 0, -524267, 0, 0, -65535, 2, 0, 20, 0, 0 )
 
 [node name="EnvironmentMap" type="TileMap" parent="WorldEnvironment"]
 tile_set = ExtResource( 3 )
