@@ -80,6 +80,7 @@ func _physics_process(delta):
 			collider = move_and_collide(move_vec * delta * abs(scale.x)*turbo)
 			
 			if player_in_view:
+				get_node("/root/GameState").attention += 0.1
 				player_pos = player.global_position
 				current_point = player_pos
 				$PlayerChecker.cast_to = (player_pos - self.position)/self.scale
