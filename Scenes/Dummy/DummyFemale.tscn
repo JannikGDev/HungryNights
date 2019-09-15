@@ -122,6 +122,7 @@ points = PoolVector2Array( 80, 20, 900, -200, 900, 195, 50, 50, 0, 45 )
 ]]
 z_index = 1
 script = ExtResource( 1 )
+female = true
 
 [node name="polygons" type="Node2D" parent="."]
 
