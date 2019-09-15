@@ -16,9 +16,26 @@ var attacking: bool = false
 var end_rotation: bool = false
 var panic: bool = false
 
+var currentTarget = 0
+
 const randomRunLength = 600
 
 var target: Vector2 = Vector2()
+
+
+
+func findNearestPatrolePoint():
+	var nearest = Vector2(-10000,-10000)
+	var chosen: int = 0
+	
+	for i in range(12):
+		var p = get_node("../PatrolNavigation/P"+str(i+1))
+		
+		if (p.global_position - self.global_position).length() < (nearest - self.global_position).length():
+			nearest = p.global_position
+			chosen = i
+	
+	return chosen
 
 func clamp_vector(vec: Vector2, min_vec: Vector2, max_vec: Vector2):
 	
@@ -31,15 +48,16 @@ func clamp_vector(vec: Vector2, min_vec: Vector2, max_vec: Vector2):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	anim.play("idle")
-	
-	target = Vector2(750, 0) + Vector2(randomRunLength*scale.x,0).rotated(randf()*PI*2)
+	currentTarget = findNearestPatrolePoint()
+	target = get_node("../PatrolNavigation/P"+str(currentTarget)).global_position
 	target = clamp_vector(target, Vector2(100, -1200), Vector2(1400, 500))
 	
 func movement(delta):
 	var move = Vector2()
 	
 	if (target - self.position).length() < speed*delta*abs(scale.x)*5:
-		target = Vector2(750, 0) + Vector2(randomRunLength*scale.x,0).rotated(randf()*PI*2)
+		currentTarget = (currentTarget%12)+1
+		target = get_node("../PatrolNavigation/P"+str(currentTarget)).global_position
 		target = clamp_vector(target, Vector2(100, -1200), Vector2(1400, 500))
 		panic = false
 	
