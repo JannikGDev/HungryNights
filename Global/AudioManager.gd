@@ -11,7 +11,8 @@ var audio_file_dict = {
 	"death":preload ("res://Assets/Sounds/Effects/death.wav"),
 	"day":preload ("res://Assets/Sounds/Ambience/day.wav"),
 	"night":preload ("res://Assets/Sounds/Ambience/night.wav"),
-	"owl":preload ("res://Assets/Sounds/Ambience/owl.wav")
+	"owl":preload ("res://Assets/Sounds/Ambience/owl.wav"),
+	"bells":preload ("res://Assets/Sounds/Effects/bells.wav")
 	}
 
 func play_audio_file (audio_file_name):
