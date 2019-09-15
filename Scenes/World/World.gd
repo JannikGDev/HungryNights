@@ -24,11 +24,24 @@ func _process(delta):
 		state.is_game_over = true
 		kill_player()
 		
+	var children = get_children()
+	var alldead = true
+	for child in children:
+		if child.is_in_group("killable"):
+			if child.alive:
+				alldead = false
+	
+	if alldead:
+		state.game_won = true
+		
 func kill_player():
-	var smoke_instance = SmokeResource.instance()
-	smoke_instance.emitting = true
-	smoke_instance.global_position = $Player.global_position
-	smoke_instance.start_timer()
-	$Camera2D.global_position = $Player.global_position
-	$Camera2D.current = true
-	add_child(smoke_instance)
+	var state = get_node("/root/GameState")
+	
+	if state.game_over_state != state.game_over.BURNBYLO:
+		var smoke_instance = SmokeResource.instance()
+		smoke_instance.emitting = true
+		smoke_instance.global_position = $Player.global_position
+		smoke_instance.start_timer()
+		$Camera2D.global_position = $Player.global_position
+		$Camera2D.current = true
+		add_child(smoke_instance)

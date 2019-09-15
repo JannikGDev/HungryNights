@@ -11,4 +11,4 @@ func _process(delta):
 			$TypicalGameOver.visible = false
 			$LotGameOvrer.visible = true
 		if Input.is_action_pressed("ui_accept"):
-			get_tree().change_scene("res://StartScreen/StartScreen.tscn")
+			get_tree().quit()

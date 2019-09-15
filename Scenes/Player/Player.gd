@@ -68,7 +68,7 @@ func _process(delta):
 
 	attackCheck(delta)
 	
-	if get_node("/root/GameState").is_game_over:
+	if get_node("/root/GameState").is_game_over or get_node("/root/GameState").game_won:
 		queue_free()
 	
 	if attacking:
