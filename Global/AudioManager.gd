@@ -14,6 +14,9 @@ var audio_file_dict = {
 func play_audio_file (audio_file_name):
 	 ###'scream_woman', 'scream_woman2', 'morning', 'scream_man', 'ambient5'###
 	
+	if !audio_file_dict.has (audio_file_name):
+		print ("WARNING: Sound " + audio_file_name + " not found." )
+		return
 	
 	var audio_file = audio_file_dict[audio_file_name]
 	
