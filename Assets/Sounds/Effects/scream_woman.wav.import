@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/scream_woman.wav-cff222c4439819873ac17a261d54dd0a.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Effects/scream_woman.wav"
+dest_files=[ "res://.import/scream_woman.wav-cff222c4439819873ac17a261d54dd0a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
