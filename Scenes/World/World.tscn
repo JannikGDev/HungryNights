@@ -284,7 +284,6 @@ script = ExtResource( 1 )
 day_duration = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-editor/display_folded = true
 
 [node name="Border" type="TileMap" parent="WorldEnvironment"]
 visible = false
@@ -351,41 +350,50 @@ tile_data = PoolIntArray( -2424808, 5, 0, -2162673, 6, 0, -1900524, 23, 0, -1703
 
 [node name="TreeMap" type="TileMap" parent="WorldEnvironment"]
 scale = Vector2( 0.3, 0.3 )
+z_index = 2
 tile_set = SubResource( 14 )
 format = 1
 tile_data = PoolIntArray( -4784076, 0, 0, -4718523, 0, 0, -4653027, 6, 0, -4653022, 5, 0, -4653009, 8, 0, -4259781, 0, 0, -4194238, 0, 0, -4128758, 8, 0, -4128742, 5, 0, -4128706, 1, 0, -4063184, 8, 0, -3997637, 1, 0, -3997628, 1, 0, -3801069, 6, 0, -3604411, 1, 0, -3473365, 7, 0, -3342278, 0, 0, -3342272, 0, 0, -3342266, 0, 0, -3080134, 0, 0, -3080130, 1, 0, -3014652, 6, 0, -2752452, 1, 0, -2686909, 0, 0, -2555841, 1, 0, -2490363, 4, 0, -2490309, 0, 0, -2490300, 0, 0, -2228167, 0, 0, -2228159, 0, 0, -2097134, 2, 0, -2097084, 0, 0, -1834952, 1, 0, -1834943, 1, 0, -1769403, 0, 0, -1703875, 1, 0, -1638370, 5, 0, -1114098, 6, 0, -720833, 0, 0, -393160, 0, 0, -196567, 0, 0, 262211, 6, 0, 393228, 6, 0, 655364, 3, 0, 786446, 3, 0, 786498, 2, 0, 917530, 2, 0, 983100, 3, 0, 1048623, 3, 0, 1179658, 2, 0, 1376303, 6, 0, 1507331, 3, 0, 1507395, 3, 0 )
 
 [node name="TreeMap2" type="TileMap" parent="WorldEnvironment"]
 scale = Vector2( 0.4, 0.35 )
+z_index = 2
 tile_set = SubResource( 14 )
 format = 1
 tile_data = PoolIntArray( -4063189, 1, 0, -3997684, 4, 0, -3932113, 1, 0, -3801058, 8, 0, -3801048, 1, 0, -3801037, 0, 0, -3538942, 7, 0, -3342295, 1, 0, -2949093, 7, 0, -2883557, 7, 0, -2818037, 5, 0, -2686926, 1, 0, -2293735, 4, 0, -2097120, 6, 0, -1900499, 1, 0, -1179631, 6, 0, -851965, 5, 0, 25, 1, 0, 655400, 2, 0, 983054, 3, 0, 1179691, 3, 0 )
 
 [node name="Lanterns" type="Node" parent="WorldEnvironment"]
+editor/display_folded = true
 
 [node name="Lantern" parent="WorldEnvironment/Lanterns" instance=ExtResource( 20 )]
 position = Vector2( 1030.63, 248.473 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 2
 
 [node name="Lantern4" parent="WorldEnvironment/Lanterns" instance=ExtResource( 20 )]
 position = Vector2( 1022.7, -349.702 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 2
 
 [node name="Lantern5" parent="WorldEnvironment/Lanterns" instance=ExtResource( 20 )]
 position = Vector2( 954.468, -819.357 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 2
 
 [node name="Lantern6" parent="WorldEnvironment/Lanterns" instance=ExtResource( 20 )]
 position = Vector2( 543.52, -795.557 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 2
 
 [node name="Lantern2" parent="WorldEnvironment/Lanterns" instance=ExtResource( 20 )]
 position = Vector2( 502.84, -201.469 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 2
 
 [node name="Lantern3" parent="WorldEnvironment/Lanterns" instance=ExtResource( 20 )]
 position = Vector2( 364.558, 174.606 )
 scale = Vector2( 0.2, 0.2 )
+z_index = 2
 
 [node name="Player" parent="." instance=ExtResource( 21 )]
 position = Vector2( 688.345, 259.075 )
