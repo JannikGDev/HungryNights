@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scenes/World/World.gd" type="Script" id=1]
 [ext_resource path="res://Assets/house_tiles.tres" type="TileSet" id=2]
@@ -256,6 +256,9 @@ vertices = PoolVector2Array( 9.79572, -1364.67, 1252.33, -1373.94, 1281.32, 422.
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( 9.79572, -1364.67, 1252.33, -1373.94, 1281.32, 422.313, 55.2426, 442.862 ) ]
 
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 98.2604, 59.5592 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -345,6 +348,7 @@ z_index = 1
 visible = false
 
 [node name="PatrolNavigation" type="Navigation2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_group_": true
 }
@@ -395,4 +399,29 @@ position = Vector2( 519.73, -939.625 )
 [node name="GraveDigger" parent="." instance=ExtResource( 18 )]
 position = Vector2( 846.783, -454.29 )
 scale = Vector2( 0.4, 0.4 )
+
+[node name="Area2D" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 229.115, -444.665 )
+z_index = 1
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 1207.38, -284.887 )
+z_index = 1
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 1153.11, 128.124 )
+z_index = 1
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 177.866, 72.3522 )
+z_index = 1
+shape = SubResource( 16 )
 [connection signal="player_attacked" from="Player" to="." method="_on_vampire_player_attacked"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
