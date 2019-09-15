@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/owl.wav-492918dbf1718f408796f9d04fb9cb77.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Ambience/owl.wav"
+dest_files=[ "res://.import/owl.wav-492918dbf1718f408796f9d04fb9cb77.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

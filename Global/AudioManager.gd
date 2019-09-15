@@ -8,7 +8,10 @@ var audio_file_dict = {
 	"scream_woman2":preload ("res://Assets/Sounds/Effects/scream_woman2.wav"),
 	"morning":preload ("res://Assets/Sounds/Effects/morning.wav"),
 	"scream_man":preload ("res://Assets/Sounds/Effects/scream_man.wav"),
-	"ambient5":preload ("res://Assets/Sounds/Ambience/ambient5.wav")
+	"death":preload ("res://Assets/Sounds/Effects/death.wav"),
+	"day":preload ("res://Assets/Sounds/Ambience/day.wav"),
+	"night":preload ("res://Assets/Sounds/Ambience/night.wav"),
+	"owl":preload ("res://Assets/Sounds/Ambience/owl.wav")
 	}
 
 func play_audio_file (audio_file_name):
