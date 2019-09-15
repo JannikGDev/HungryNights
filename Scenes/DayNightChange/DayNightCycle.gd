@@ -97,6 +97,7 @@ func cycle_test(new_cycle):
 			$Tween.start()
 
 		if cycle == cycle_state.DAWN:
+			get_node("/root/AudioManager").play_audio_file("bells")
 			$Tween.interpolate_property(self, "color", color_night, color_dawn, transition_duration, Tween.TRANS_SINE, Tween.EASE_OUT)
 			$Tween.start()
 
@@ -110,5 +111,6 @@ func cycle_test(new_cycle):
 			$Tween.start()
 
 		if cycle == cycle_state.DUSK:
+			get_node("/root/AudioManager").play_audio_file("bells")
 			$Tween.interpolate_property(self, "color", color_day, color_dusk, transition_duration, Tween.TRANS_SINE, Tween.EASE_OUT)
 			$Tween.start()
