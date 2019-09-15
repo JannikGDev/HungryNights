@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bells.wav-6bb52e5b911737237514bdfa27eae09d.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Effects/bells.wav"
+dest_files=[ "res://.import/bells.wav-6bb52e5b911737237514bdfa27eae09d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
