@@ -188,10 +188,6 @@ rest = Transform2D( -0.70193, 0.712245, -0.712245, -0.70193, -31.2116, -45.3643 
 anims/idle = SubResource( 1 )
 anims/walk = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-zoom = Vector2( 0.5, 0.5 )
-
 [node name="Spotted" type="Sprite" parent="."]
 visible = false
 position = Vector2( -3.25806, -171.862 )

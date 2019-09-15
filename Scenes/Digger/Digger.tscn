@@ -322,6 +322,7 @@ texture = ExtResource( 7 )
 offset = Vector2( 550, 185 )
 
 [node name="Vision" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
 position = Vector2( 2.31358, -55.2516 )
