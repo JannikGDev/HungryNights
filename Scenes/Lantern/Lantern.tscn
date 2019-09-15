@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Lantern.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Lantern/Lantern.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Lantern/Latern.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Lantern/light.png" type="Texture" id=3]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 162.346

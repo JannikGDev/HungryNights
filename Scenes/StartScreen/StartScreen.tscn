@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/StartScreen/Control.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/StartScreen/Start.png" type="Texture" id=2]
+
 
 [node name="StartScreen" type="Control"]
 anchor_right = 1.0
