@@ -106,6 +106,7 @@ func check_vision(delta):
 	
 	for entity in spotted:
 		if entity.is_in_group("player"):
+			get_node("/root/GameState").attention += 2.5
 			panic = true
 			target = self.position -(entity.position - self.position).normalized()*randomRunLength
 			target = clamp_vector(target, Vector2(100, -1200), Vector2(1400, 500))

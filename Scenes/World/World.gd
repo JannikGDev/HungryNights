@@ -22,3 +22,10 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.get_name() == "Player":
 		get_node("WorldEnvironment/HousesOutside").visible = true
+
+func _process(delta):
+	var state = get_node("/root/GameState")
+	if state.attention >= 100:
+		state.game_over_state = state.game_over.BURNBYLO
+		state.is_game_over = true
+		
