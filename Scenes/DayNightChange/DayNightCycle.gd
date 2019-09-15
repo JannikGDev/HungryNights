@@ -51,6 +51,8 @@ func _ready():
 	elif current_day_hour >= state_dusk_start_hour and current_day_hour < state_night_start_hour:
 		cycle = cycle_state.DUSK
 		color = color_dusk
+		
+	get_node("/root/AudioManager").play_audio_file("day")
 
 
 func _physics_process(delta):
@@ -77,7 +79,7 @@ func day_cycle():
 	elif current_day_hour >= state_day_start_hour and current_day_hour < state_dusk_start_hour:
 		cycle_test(cycle_state.DAY)
 	elif current_day_hour >= state_dusk_start_hour and current_day_hour < state_night_start_hour:
-		cycle_test(cycle_state.DUSK)
+		cycle_test(cycle_state.DUSK)	
 
 	if debug_mode:
 		print(str("Day ", current_day_number)  + " - " + str(int(current_day_hour), " h") + " - " + str(cycle_state.keys()[cycle]))
@@ -88,6 +90,9 @@ func cycle_test(new_cycle):
 		cycle = new_cycle
 
 		if cycle == cycle_state.NIGHT:
+			get_node("/root/AudioManager").stop_all_audio()
+			get_node("/root/AudioManager").play_audio_file("night")
+			get_node("/root/AudioManager").play_audio_file("owl")
 			$Tween.interpolate_property(self, "color", color_dusk, color_night, transition_duration, Tween.TRANS_SINE, Tween.EASE_OUT)
 			$Tween.start()
 
@@ -96,6 +101,11 @@ func cycle_test(new_cycle):
 			$Tween.start()
 
 		if cycle == cycle_state.DAY:
+			get_node("/root/AudioManager").stop_all_audio()
+			if (rand_range(0,1) > 0.9):
+				get_node("/root/AudioManager").play_audio_file("cantina")
+			else:
+				get_node("/root/AudioManager").play_audio_file("day")
 			$Tween.interpolate_property(self, "color", color_dawn, color_day, transition_duration, Tween.TRANS_SINE, Tween.EASE_OUT)
 			$Tween.start()
 
