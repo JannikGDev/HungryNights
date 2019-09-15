@@ -90,6 +90,7 @@ func _process(delta):
 				entity.kill()
 
 func attacked():
+	get_node("/root/AudioManager").play_audio_file("death")
 	emit_signal("player_attacked")
 	queue_free()
 	
