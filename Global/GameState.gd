@@ -9,3 +9,4 @@ var killed_people = []
 var witnesses = []
 var is_game_over: bool
 var game_over_state
+var game_won: bool = false
