@@ -56,6 +56,10 @@ func _ready():
 func _physics_process(delta):
 	day_cycle()
 	current_time += 1
+	get_node("/root/GameState").daytime = float(current_day_hour)
+	
+func get_time():
+	return current_day_hour
 
 
 func day_cycle():
