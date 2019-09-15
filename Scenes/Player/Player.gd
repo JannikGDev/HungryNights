@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 # Declare member variables here. Examples:
 export var baseSpeed = 300
+export var guardSpawnDis = 300
+export var guardSpawnAmount = 3
 
 onready var anim: AnimationPlayer = get_node("AnimationPlayer")
 onready var polygons: Node2D = get_node("polygons")
@@ -73,9 +75,9 @@ func _process(delta):
 			if !entity.is_in_group("player") and entity.is_in_group("killable"):
 				if entity.kill():
 					var root: Node2D = get_parent()
-					for i in range(0,5):
+					for i in range(0,guardSpawnAmount):
 						var g: KinematicBody2D = Guard.instance()
-						var offset: Vector2 = Vector2(100,0)
+						var offset: Vector2 = Vector2(guardSpawnDis,0)
 						g.position = self.position + offset.rotated(randi()%360)
 						g.position = clamp_vector(g.position, Vector2(400, -1000), Vector2(1100, 300))
 						g.z_index = 1
@@ -83,6 +85,9 @@ func _process(delta):
 						g.speed = 100
 						
 						root.add_child(g)
+						
+			if !entity.is_in_group("player") and entity.is_in_group("guard"):
+				entity.kill()
 
 func attacked():
 	emit_signal("player_attacked")

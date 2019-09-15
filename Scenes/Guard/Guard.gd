@@ -43,6 +43,11 @@ func findNearestPatrolePoint():
 func _ready():
 	currentPatrole = findNearestPatrolePoint()
 	
+	var collider = move_and_collide(Vector2(0.1,0.1))
+	
+	if is_instance_valid(collider):
+		queue_free()
+	
 	current_way = navigation.get_simple_path(global_position, get_node("../PatrolNavigation/P"+str(currentPatrole)).global_position)
 	current_point_index = 0
 	if len(current_way) == 0:
@@ -170,6 +175,7 @@ func kill():
 		alive = false
 		get_node("/root/AudioManager").play_audio_file("scream_man")
 		anim.play("idle")
+		get_node("CollisionShape2D").disabled = true
 		return true
 	else:
 		return false

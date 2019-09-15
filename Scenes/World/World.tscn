@@ -325,6 +325,7 @@ position = Vector2( 688.345, 259.075 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 1
 baseSpeed = 300
+guardSpawnDis = 200
 
 [node name="guard" parent="." instance=ExtResource( 17 )]
 position = Vector2( 432.871, -437.437 )
@@ -335,7 +336,6 @@ z_index = 1
 visible = false
 
 [node name="PatrolNavigation" type="Navigation2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_group_": true
 }

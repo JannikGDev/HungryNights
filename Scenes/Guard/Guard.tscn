@@ -159,7 +159,9 @@ extents = Vector2( 25.0292, 24.8565 )
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 80, 20, 900, -200, 900, 195, 50, 50, 0, 45 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"guard",
+]]
 script = ExtResource( 1 )
 
 [node name="polygons" type="Node2D" parent="."]
