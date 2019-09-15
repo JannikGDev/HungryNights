@@ -28,6 +28,9 @@ func play_audio_file (audio_file_name):
 	#audio_player_instance.play_test_sound()
 	audio_player_instance.play_audio(audio_file)
 	
+func stop_all_audio ():
+    for N in self.get_children():
+        remove_child(N)
 	
 	
 	
