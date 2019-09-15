@@ -68,6 +68,9 @@ func _process(delta):
 
 	attackCheck(delta)
 	
+	if get_node("/root/GameState").is_game_over:
+		queue_free()
+	
 	if attacking:
 		var victims = attackBox.get_overlapping_bodies()
 		
