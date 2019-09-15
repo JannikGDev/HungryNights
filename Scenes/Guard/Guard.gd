@@ -62,9 +62,10 @@ func _physics_process(delta):
 	if alive:
 		if spotting:
 			$ViewCone.rotation = move_vec.angle()
+			VisionCone.rotation = move_vec.angle()
 		else:
 			$ViewCone.rotation += (move_vec.angle() - $ViewCone.rotation)*delta*0.5
-		VisionCone.rotation = move_vec.angle()
+			VisionCone.rotation += (move_vec.angle() - VisionCone.rotation)*delta*0.5
 		
 		spottedSprite.visible = spotting
 		

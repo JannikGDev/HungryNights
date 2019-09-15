@@ -1,0 +1,209 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Person/Person.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Nun/CHAR_Nun_leg_left.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Nun/CHAR_Nun_leg_right.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Nun/CHAR_Nun_Body.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Nun/CHAR_Nun_Arm_left.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Nun/CHAR_Nun_Book.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Person/cone.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Person/spotted.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Center/leg_right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 95.0255 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Center/leg_left:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 101.297 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/Center/arm_left:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 118.987 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/Center/leg_right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 95.0255, 56.8654, 92.5502, 133.375, 95.0255 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/Center/leg_left:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 101.297, 132.879, 95.7, 58.9708, 101.297 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/Center/arm_left:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 118.987, 108.943, 100.545, 103.457, 118.987 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 35.8457, 37.5011 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 80, 20, 900, -200, 900, 195, 50, 50, 0, 45 )
+
+[node name="GraveDigger" type="KinematicBody2D" groups=[
+"killable",
+]]
+z_index = 1
+script = ExtResource( 1 )
+female = true
+
+[node name="polygons" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="leg_left" type="Polygon2D" parent="polygons"]
+position = Vector2( -80.3369, -132.565 )
+rotation = 0.0394573
+scale = Vector2( 0.1, 0.1 )
+z_index = 1
+texture = ExtResource( 2 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 665.116, 1574.42, 618.605, 1832.56, 690.698, 1876.74, 795.349, 1881.4, 806.977, 1809.3, 751.163, 1760.47, 772.093, 1537.21 )
+uv = PoolVector2Array( 665.116, 1574.42, 618.605, 1832.56, 690.698, 1876.74, 795.349, 1881.4, 806.977, 1809.3, 751.163, 1760.47, 772.093, 1537.21 )
+bones = [ NodePath("Center"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_left"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("Center/arm_left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="left_right" type="Polygon2D" parent="polygons"]
+position = Vector2( -80.9764, -129.632 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 1
+texture = ExtResource( 3 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 869.767, 1558.14, 816.279, 1848.84, 986.047, 1893.02, 990.698, 1795.35, 939.535, 1741.86, 972.093, 1558.14 )
+uv = PoolVector2Array( 869.767, 1558.14, 816.279, 1848.84, 986.047, 1893.02, 990.698, 1795.35, 939.535, 1741.86, 972.093, 1558.14 )
+bones = [ NodePath("Center"), PoolRealArray( 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_right"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ), NodePath("Center/leg_left"), PoolRealArray( 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_left"), PoolRealArray( 0, 0, 0, 0, 0, 0 ) ]
+
+[node name="body" type="Polygon2D" parent="polygons"]
+position = Vector2( -85.8129, -132.366 )
+scale = Vector2( 0.1, 0.1 )
+z_index = 1
+texture = ExtResource( 4 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 581.395, 376.744, 462.791, 706.977, 423.256, 1251.16, 444.186, 1725.58, 1167.44, 1658.14, 1072.09, 1041.86, 1041.86, 344.186 )
+uv = PoolVector2Array( 581.395, 376.744, 462.791, 706.977, 423.256, 1251.16, 444.186, 1725.58, 1167.44, 1658.14, 1072.09, 1041.86, 1041.86, 344.186 )
+
+[node name="arm_left" type="Polygon2D" parent="polygons"]
+position = Vector2( -61.8259, -147.042 )
+rotation = 0.234579
+scale = Vector2( 0.1, 0.1 )
+z_index = 2
+texture = ExtResource( 5 )
+skeleton = NodePath("../../Skeleton2D")
+polygon = PoolVector2Array( 560.465, 1016.28, 395.349, 1397.67, 506.977, 1420.93, 504.651, 1613.95, 679.07, 1600, 648.837, 1439.54, 739.535, 1437.21, 781.395, 1044.19 )
+uv = PoolVector2Array( 560.465, 1016.28, 395.349, 1397.67, 506.977, 1420.93, 504.651, 1613.95, 679.07, 1600, 648.837, 1439.54, 739.535, 1437.21, 781.395, 1044.19 )
+bones = [ NodePath("Center"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_right"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/leg_left"), PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 ), NodePath("Center/arm_left"), PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ) ]
+
+[node name="bible" type="Polygon2D" parent="polygons/arm_left"]
+position = Vector2( -901.346, 1047.19 )
+rotation = -0.842167
+z_index = -1
+texture = ExtResource( 6 )
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PoolVector2Array( 474.419, 1367.44, 486.047, 1609.3, 758.14, 1606.98, 762.791, 1367.44 )
+uv = PoolVector2Array( 474.419, 1393.02, 486.047, 1609.3, 758.14, 1606.98, 762.791, 1367.44 )
+bones = [ NodePath("Center"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Center/leg_right"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Center/leg_left"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Center/arm_left"), PoolRealArray( 0.5, 0.5, 0.5, 0.5 ) ]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+editor/display_folded = true
+visible = false
+
+[node name="Center" type="Bone2D" parent="Skeleton2D"]
+position = Vector2( 1.43394, 0 )
+rest = Transform2D( 1, 0, 0, 1, 1.43394, 0 )
+
+[node name="leg_right" type="Bone2D" parent="Skeleton2D/Center"]
+position = Vector2( 10.021, 20.2858 )
+rotation = 1.34631
+scale = Vector2( 1, 1 )
+rest = Transform2D( -0.0875993, 0.996156, -0.996156, -0.0875993, 10.021, 20.2858 )
+
+[node name="leg_left" type="Bone2D" parent="Skeleton2D/Center"]
+position = Vector2( -11.8403, 21.5224 )
+rotation = 2.02635
+scale = Vector2( 1, 1 )
+rest = Transform2D( -0.195898, 0.980624, -0.980624, -0.195898, -11.8403, 21.5224 )
+
+[node name="arm_left" type="Bone2D" parent="Skeleton2D/Center"]
+position = Vector2( -19.4641, -33.062 )
+rotation = 1.99454
+scale = Vector2( 1, 1 )
+z_index = 1
+rest = Transform2D( -0.484614, 0.874728, -0.874728, -0.484614, -19.4641, -33.062 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = SubResource( 1 )
+anims/walk = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -1.58887, 28.9968 )
+shape = SubResource( 3 )
+
+[node name="VisionCone" type="Sprite" parent="."]
+position = Vector2( 13.1625, -11.6359 )
+texture = ExtResource( 7 )
+offset = Vector2( 550, 185 )
+
+[node name="Vision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
+position = Vector2( 2.31358, -55.2516 )
+shape = SubResource( 4 )
+
+[node name="Spotted" type="Sprite" parent="."]
+visible = false
+position = Vector2( -3.25806, -171.862 )
+texture = ExtResource( 8 )
