@@ -29,14 +29,14 @@ var spotted_player: Node2D = null
 
 func findNearestPatrolePoint():
 	var nearest = Vector2(-10000,-10000)
-	var chosen: int = 0
+	var chosen: int = 1
 	
 	for i in range(12):
 		var p = get_node("../PatrolNavigation/P"+str(i+1))
-		
-		if (p.global_position - self.global_position).length() < (nearest - self.global_position).length():
-			nearest = p.global_position
-			chosen = i+1
+		if p != null:
+			if (p.global_position - self.global_position).length() < (nearest - self.global_position).length():
+				nearest = p.global_position
+				chosen = i+1
 	
 	return chosen
 
