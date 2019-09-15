@@ -2,7 +2,7 @@ extends Node2D
 
 # Declare member variables here.
 var AudioManager = null
-var audio_node = null
+#var audio_node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +13,7 @@ func _ready():
 #	audio_node.connect("finished", self, "sound_finished")
 #	audio_node.stop()
 	
-	create_sound("scream_woman")
+	create_sound("morning")
 
 func create_sound(sound_name):
 	if is_instance_valid(AudioManager):
